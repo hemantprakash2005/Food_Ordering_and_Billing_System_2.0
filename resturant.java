@@ -1,26 +1,31 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 public class resturant
 {
+	Scanner sc=new Scanner(System.in);
     int total_cost=0;
     int cost_starter=0; int cost_main=0;
     int cost_bev=0; int cost_dessert=0;
 
     public void input() //choices regarding the type of meal to be ordered 
     {
+    	System.out.println("***********************************************************");
+        System.out.println("*              The Grand Central Restaurant               *");
+        System.out.println("***********************************************************");
         System.out.println("Enter your name: ");
         String name=sc.nextLine();
         System.out.println("Enter your phone number: ");
         String phone=sc.next();
 
-        System.out.println("Press 1: Starters\nPress 2:Main Course\nPress 3: Desserts\nPress 4:Bevrages")
+        System.out.println("Press 1: Starters\nPress 2:Main Course\nPress 3: Desserts\nPress 4:Bevrages");
         int choice=sc.nextInt();
         switch(choice)
         {
             case 1: starters();
             break;
-            case 2 mainCourse();
+            case 2:mainCourse();
             break;
-            case 3: desserts();
+            case 3: dessert();
             break;
             case 4: beverages();
             break;
@@ -30,10 +35,9 @@ public class resturant
 
     public void starters() //choices regarding starters 
     {
-        System.out.println("********Welcome to the Starter section********");
+        System.out.println("*************Welcome to the Starter section****************");
         System.out.println("Press 1: Vegetarian Starter\nPress 2: Non-veg Starter");
         int choice=sc.nextInt();
-        int cost_starter=0; //calculate cost of the starters
         switch(choice)
         {
             case 1: //veg starters 
@@ -103,10 +107,9 @@ public class resturant
 
     public void mainCourse()    //choices regarding main course dishes
     {
-        System.out.println("********Welcome to the Main Course section********");
+    	System.out.println("***********Welcome to the Main COurse section**************");
         System.out.println("Press 1: Vegetarian Main Course\nPress 2: Non-veg Main Course\nPress 3:For Breads");
         int choice=sc.nextInt();
-        int cost_main=0; //calculate cost of the main course
         switch(choice)
         {
             case 1: //veg main course
@@ -206,8 +209,8 @@ public class resturant
     
     public void dessert() //choices regarding the dessert
     {
-        System.out.println("Welcome to the Dessert Section: ");
-        System.out.println("Press 1: Ice Creams\nPress 2: Soft Desserts\nPress 3: Cakes\nPress 4: Bakes\nPress 5: Mousses");
+    	System.out.println("**************Welcome to the Desserts section**************");
+        System.out.println("Press 1: Ice Creams\nPress 2: Soft Desserts\nPress 3: Cakes\nPress 4: Mousses");
         int choice=sc.nextInt();
         switch(choice)
         {
@@ -219,7 +222,7 @@ public class resturant
                 System.out.println("3.Rocky Road Ice Cream            25");
                 System.out.println("4.Pineapple Ice cream             45");
                 System.out.println("5.Mango Ice cream                 50");
-                System.out.pritnln("6.Chocolate Ice Cream             30");
+                System.out.println("6.Chocolate Ice Cream             30");
                 System.out.println("7.Kulfi                           25");
                 System.out.println("Press the number before Ice Cream to order.....");
                 int choice1=sc.nextInt();
@@ -286,7 +289,7 @@ public class resturant
                 }
             break;
             case 4: //mousses
-                System.out.pritnln("List of Mousses:");
+                System.out.println("List of Mousses:");
                 System.out.println("Mousse                          Amount(in Rs.)");
                 System.out.println("1.Rocky Road Chocolate Mousse      30");
                 System.out.println("2.Rocky Road Butterscotch Mousse   30");
@@ -314,10 +317,9 @@ public class resturant
 
     public void beverages() //choices regarding the beverages
     {
-        System.out.println("Welcome to the Beverage Section: ");
-        System.out.println("Press 1: Soft Drinks\nPress 2: Juices\nPress 3:Tea & Coffee\n Press 4:Mocktails & Cocktails");
+    	System.out.println("**************Welcome to the Beverages section**************");
+        System.out.println("Press 1: Soft Drinks\nPress 2: Juices\nPress 3:Tea & Coffee\nPress 4:Mocktails & Cocktails");
         int choice=sc.nextInt();
-        int cost_bev=0; //calculate cost of beverages
         switch(choice)
         {
             case 1: //soft drinks
@@ -391,7 +393,7 @@ public class resturant
                 }
             break;
             case 4: //mocktails & cocktails
-                System.out.println("List of Mocktails And Cocktails"):
+                System.out.println("List of Mocktails And Cocktails:");
                 System.out.println("Drink(1 cup)                Amount(in Rs.)");
                 System.out.println("1.Mojito                        150");
                 System.out.println("2.Margarita                     200");
@@ -415,25 +417,27 @@ public class resturant
         total_cost+=cost_bev;   //adding the cost of beverages to the total cost
     }
     
-    public void billing()   // to calculate the bill and print the reciept 
+    public void billing()   // to calculate the bill and print the bill 
     {
-        float gst=0.18*total_cost;
+    	System.out.println("\n\n");
+        float gst=(float)0.18*total_cost;
         System.out.println("***********************************************************");
-        System.out.println("*          Welcome to the Grand Central Restaurant        *");
+        System.out.println("*              The Grand Central Restaurant               *");
         System.out.println("***********************************************************");
-        System.out.println("*   Amount for Starters =      Rs."+ cost_starter+"                   *" );
-        System.out.println("*   Amount for Main Course =   Rs."+cost_main+"                   *");
-        System.out.println("*   Amount for Beverages =     Rs."+cost_bev+"                   *");
-        System.out.println("*   Amount for Desserts =      Rs"+cost_desserts+".                   *");
+        System.out.println("         Amount for Starters =      Rs."+ cost_starter);
+        System.out.println("         Amount for Main Course =   Rs."+cost_main);
+        System.out.println("         Amount for Beverages =     Rs." +cost_bev);
+        System.out.println("         Amount for Desserts =      Rs."+cost_dessert);
         System.out.println("***********************************************************");
-        System.out.println("*   GST =                      Rs.                        *"+gst);
+        System.out.println("*        GST =                      Rs."+gst);
         System.out.println("***********************************************************");
-        System.out.println("*   Amount to be paid =        Rs."+(double)(gst+total_cost)+"                        *");
+        System.out.println("         Amount to be paid =        Rs."+(double)(gst+total_cost));
         System.out.println("***********************************************************");
-        SYstem.out.println("*                    Thank You                            *");
-        System.out.println("*             We Hope for Your presence Again             *")
+        System.out.println("*                       Thank You                         *");
+        System.out.println("*             We Hope for Your presence Again             *");
         System.out.println("***********************************************************");
     }
+    
     public static void main(String[] args)
     {
         resturant obj=new resturant();  //class object
@@ -441,3 +445,16 @@ public class resturant
         obj.billing(); 
     }
 }
+
+/* 
+ 	Need to add the features of choosing multiple items(dishes) and number of plates to be ordered: 
+ 		To solve this issue, i may use an arrayList to store the dish number of the meals along with the number of plates of each dish to be ordered 
+ 		in two separate ArrayLists taking the input in both of them at once.
+ */
+// validation of the phone number
+/* 
+ 	if any wrong dish number or choice is made then, how to deal with it. How to ask the user to re-enter the choice or other detail again even if the wrong entry
+ 	is done multiple times.
+*/
+// how to go back to the previous choice of the dishes, i.e. how to go back in the menu section.
+
