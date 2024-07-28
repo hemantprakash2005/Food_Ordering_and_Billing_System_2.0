@@ -2,6 +2,9 @@ import java.util.Scanner;
 public class resturant
 {
     int total_cost=0;
+    int cost_starter=0; int cost_main=0;
+    int cost_bev=0; int cost_dessert=0;
+
     public void input() //choices regarding the type of meal to be ordered 
     {
         System.out.println("Enter your name: ");
@@ -95,14 +98,13 @@ public class resturant
             break;
             default:System.out.println("Invalid choice");
         }
-        System.out.println("Total cost of starters orderd: Rs. "+cost_starter);
-        total_cost+=cost_starter; //add the cost of starters to the total cost
+        total_cost+=cost_starter; //adding the cost of starters to the total cost
     }
 
     public void mainCourse()    //choices regarding main course dishes
     {
         System.out.println("********Welcome to the Main Course section********");
-        System.out.println("Press 1: Vegetarian Main Course\nPress 2: Non-veg Main Course");
+        System.out.println("Press 1: Vegetarian Main Course\nPress 2: Non-veg Main Course\nPress 3:For Breads");
         int choice=sc.nextInt();
         int cost_main=0; //calculate cost of the main course
         switch(choice)
@@ -167,16 +169,153 @@ public class resturant
                     default:System.out.println("Invalid choice");
                 }
             break;
+            case 3: // for breads
+                System.out.println("List of Breads: ");
+                System.out.println("Bread(1 pc)              Amount(in Rs.)");
+                System.out.println("1.Tawa Roti                    7");
+                System.out.println("2.Naan                        20");
+                System.out.println("3.Garlic Naan                 30");
+                System.out.println("4.Butter Naan                 30");
+                System.out.println("5.Gluten-Free Bread           45");
+                System.out.println("6.Tandoori Roti               35");
+                System.out.println("7.Roomali Roti                30");
+                System.out.println("8.Peshawari Naan              50");   
+                System.out.println("9. Spinach and Cheese Naan   100");
+                System.out.println("10.Amritsari Kulcha           60");
+                System.out.println("Press the number before Bread to order.....");
+                int choice3=sc.nextInt();
+                switch(choice3)
+                {
+                    case 1:cost_main+=7;    break;
+                    case 2:cost_main+=20;   break;
+                    case 3:
+                    case 4:
+                    case 7:cost_main+=30;   break;
+                    case 5:cost_main+=45;   break;
+                    case 6:cost_main+=35;   break;
+                    case 8:cost_main+=50;   break;
+                    case 9:cost_main+=100;  break;
+                    case 10:cost_main+=60;  break;
+                    default:System.out.println("Invalid choice");
+                }
+            break;
             default:System.out.println("Invalid choice");
         }
-        System.out.println("Total cost of main course orderd: Rs. "+cost_main);
-        total_cost+=cost_main; //add the cost of main course to the total cost
+        total_cost+=cost_main; //adding the cost of main course to the total cost
+    }
+    
+    public void dessert() //choices regarding the dessert
+    {
+        System.out.println("Welcome to the Dessert Section: ");
+        System.out.println("Press 1: Ice Creams\nPress 2: Soft Desserts\nPress 3: Cakes\nPress 4: Bakes\nPress 5: Mousses");
+        int choice=sc.nextInt();
+        switch(choice)
+        {
+            case 1: //ice creams
+                System.out.println("List of Ice Creams: ");
+                System.out.println("Ice Cream                     Amount(in Rs.)");
+                System.out.println("1.Vanilla Ice Cream               25");
+                System.out.println("2.Strawberry Ice Cream            80");
+                System.out.println("3.Rocky Road Ice Cream            25");
+                System.out.println("4.Pineapple Ice cream             45");
+                System.out.println("5.Mango Ice cream                 50");
+                System.out.pritnln("6.Chocolate Ice Cream             30");
+                System.out.println("7.Kulfi                           25");
+                System.out.println("Press the number before Ice Cream to order.....");
+                int choice1=sc.nextInt();
+                switch(choice1)
+                {
+                    case 1:
+                    case 3:
+                    case 7:cost_dessert+=25;   break;
+                    case 2:cost_dessert+=80;   break;
+                    case 4:cost_dessert+=45;   break;
+                    case 5:cost_dessert+=50;   break;
+                    case 6:cost_dessert+=30;   break;
+                    default:System.out.println("Invalid choice");
+                }
+            break;
+            case 2: //soft desserts
+                System.out.println("List of Soft Desserts: ");
+                System.out.println("Soft Dessert                     Amount(in Rs.)");
+                System.out.println("1.Gulab Jamun(2pc)                   30");
+                System.out.println("2.Ras Malai(2pc)                     40");
+                System.out.println("3.Jalebi(2pc)                        30");
+                System.out.println("4.Falooda(1 glass)                   50");
+                System.out.println("5.Shrikhand                          70");
+                System.out.println("6.Gulab Jamun with Rabri             80");
+                System.out.println("7.Rabri                              30");
+                System.out.println("8.Falooda with Kulfi                 90");
+                System.out.println("Press the number before the Dessert to order....");
+                int choice2=sc.nextInt();
+                switch(choice2)
+                {
+                    case 1:
+                    case 3:
+                    case 7:cost_dessert+=30;   break;
+                    case 2:cost_dessert+=40;   break;
+                    case 4:cost_dessert+=50;   break;
+                    case 5:cost_dessert+=70;   break;
+                    case 6:cost_dessert+=80;   break;
+                    case 8:cost_dessert+=90;   break;
+                    default:System.out.println("Invalid choice");
+                }
+            break;
+            case 3: //cakes
+                System.out.println("List of Cakes: ");
+                System.out.println("Cake                          Amount(in Rs.)");
+                System.out.println("1.Red velvet Cake                 250");
+                System.out.println("2.Vanilla Cake                    150");
+                System.out.println("3.Chocolate Cake                  200");
+                System.out.println("4.Rocky Road Cake                 230");
+                System.out.println("5.Rocky Road Chocolate Cake       175");
+                System.out.println("6.Rocky Road Vanilla Cake         450");
+                System.out.println("7.Rocky Road Butterscotch Cake    250");
+                System.out.println("Press the number before the cake to order.....");
+                int choice3=sc.nextInt();
+                switch(choice3)
+                {
+                    case 1:
+                    case 7:cost_dessert+=250;   break;
+                    case 2:cost_dessert+=150;   break;
+                    case 3:cost_dessert+=200;   break;
+                    case 4:cost_dessert+=230;   break;
+                    case 5:cost_dessert+=175;   break;
+                    case 6:cost_dessert+=450;   break;
+                    default:System.out.println("Invalid choice");
+                }
+            break;
+            case 4: //mousses
+                System.out.pritnln("List of Mousses:");
+                System.out.println("Mousse                          Amount(in Rs.)");
+                System.out.println("1.Rocky Road Chocolate Mousse      30");
+                System.out.println("2.Rocky Road Butterscotch Mousse   30");
+                System.out.println("3.Rocky Road Vanilla Mousse        30");
+                System.out.println("4.Pistachio Mousse                180");
+                System.out.println("5.Raspberry Mousses               150");
+                System.out.println("6.Pineapple Mousse                180");
+                System.out.println("Press the number before the mousse to order.....");
+                int choice4=sc.nextInt();
+                switch(choice4)
+                {
+                    case 1:
+                    case 2:
+                    case 3:cost_bev+=30;    break;
+                    case 4:
+                    case 6:cost_bev+=180;  break;
+                    case 5:cost_bev+=150;  break;
+                    default:System.out.println("Invalid choice");
+                }
+            break;
+            default:System.out.println("Invalid choice");
+        }
+        total_cost+=cost_dessert;   //adding the cost of desserts to the total cost
     }
 
     public void beverages() //choices regarding the beverages
     {
         System.out.println("Welcome to the Beverage Section: ");
-        System.out.println("Press 1: Soft Drinks\nPress 2: Juices\nPress 3:Ice-Creams\nPress 4:Tea & Coffee\n Press 5:Mocktails & Cocktails");
+        System.out.println("Press 1: Soft Drinks\nPress 2: Juices\nPress 3:Tea & Coffee\n Press 4:Mocktails & Cocktails");
         int choice=sc.nextInt();
         int cost_bev=0; //calculate cost of beverages
         switch(choice)
@@ -229,29 +368,7 @@ public class resturant
                     default:System.out.println("Invalid choice");
                 }
             break;
-            case 3: //ice-creams
-                System.out.println("List of Ice-Creams: ");
-                System.out.println("Ice-Cream(250 mL)          Amount(in Rs.)");
-                System.out.println("1.Vanilla Ice-Cream              100");
-                System.out.println("2.Strawberry Ice-Cream           120");
-                System.out.println("3.Rocky Road Ice-Cream           140");
-                System.out.println("4.Mint Chocolate Ice-Cream       130");
-                System.out.println("5.Rocky Road Ice-Cream           140");
-                System.out.println("6.Rocky Road Ice-Cream           140");
-                System.out.println("Press the number before the ice-cream to order.....");
-                int choice3=sc.nextInt;
-                switch(choice3)
-                {
-                    case 1:cost_bev+=100;    break;
-                    case 2:cost_bev+=120;    break;
-                    case 3:
-                    case 5:
-                    case 6:cost_bev+=140;    break;
-                    case 4:cost_bev+=130;    break;
-                    default:System.out.println("Invalid choice");
-                }
-            break;
-            case 4: //tea & coffee
+            case 3: //tea & coffee
                 System.out.println("List of Tea & Coffee: ");
                 System.out.println("Tea(1 cup)                 Amount(in Rs.)");
                 System.out.println("1.Black Tea                      80");
@@ -273,7 +390,7 @@ public class resturant
                     default:System.out.println("Invalid choice");
                 }
             break;
-            case 5: //mocktails & cocktails
+            case 4: //mocktails & cocktails
                 System.out.println("List of Mocktails And Cocktails"):
                 System.out.println("Drink(1 cup)                Amount(in Rs.)");
                 System.out.println("1.Mojito                        150");
@@ -295,12 +412,32 @@ public class resturant
             break;
             default:System.out.println("Invalid choice");
         }
-        System.out.println("Total cost of bevrerages orderd: Rs."+cost_bev);
         total_cost+=cost_bev;   //adding the cost of beverages to the total cost
+    }
+    
+    public void billing()   // to calculate the bill and print the reciept 
+    {
+        float gst=0.18*total_cost;
+        System.out.println("***********************************************************");
+        System.out.println("*          Welcome to the Grand Central Restaurant        *");
+        System.out.println("***********************************************************");
+        System.out.println("*   Amount for Starters =      Rs."+ cost_starter+"                   *" );
+        System.out.println("*   Amount for Main Course =   Rs."+cost_main+"                   *");
+        System.out.println("*   Amount for Beverages =     Rs."+cost_bev+"                   *");
+        System.out.println("*   Amount for Desserts =      Rs"+cost_desserts+".                   *");
+        System.out.println("***********************************************************");
+        System.out.println("*   GST =                      Rs.                        *"+gst);
+        System.out.println("***********************************************************");
+        System.out.println("*   Amount to be paid =        Rs."+(double)(gst+total_cost)+"                        *");
+        System.out.println("***********************************************************");
+        SYstem.out.println("*                    Thank You                            *");
+        System.out.println("*             We Hope for Your presence Again             *")
+        System.out.println("***********************************************************");
     }
     public static void main(String[] args)
     {
         resturant obj=new resturant();  //class object
-        
+        obj.input();
+        obj.billing(); 
     }
 }
