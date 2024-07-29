@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 public class resturant
 {
 	Scanner sc=new Scanner(System.in);
@@ -7,7 +6,7 @@ public class resturant
     int cost_starter=0; int cost_main=0;
     int cost_bev=0; int cost_dessert=0;
 
-    public void input() //choices regarding the type of meal to be ordered 
+    public void details() //input of the details of the customer
     {
     	System.out.println("***********************************************************");
         System.out.println("*              The Grand Central Restaurant               *");
@@ -16,7 +15,9 @@ public class resturant
         String name=sc.nextLine();
         System.out.println("Enter your phone number: ");
         String phone=sc.next();
-
+    }
+    public void main_menu() //choices regarding the type of food to be orderd
+    {
         System.out.println("Press 1: Starters\nPress 2:Main Course\nPress 3: Desserts\nPress 4:Bevrages");
         int choice=sc.nextInt();
         switch(choice)
@@ -33,7 +34,7 @@ public class resturant
         }
     }
 
-    public void starters() //choices regarding starters 
+    public void starters() //choices regarding starters (working on multiple selection of items and number of plates)
     {
         System.out.println("*************Welcome to the Starter section****************");
         System.out.println("Press 1: Vegetarian Starter\nPress 2: Non-veg Starter");
@@ -53,22 +54,37 @@ public class resturant
                 System.out.println("8.Masala Papad                 80");
                 System.out.println("9.Vegeiee Dumplings           150");
                 System.out.println("10.Fried Mozarella Sticks     180");
-                System.out.println("Press the number before the dissh to order.....");
-                int choice1=sc.nextInt();
-                switch(choice1)
+                System.out.println("Press the number before the item to order.....");
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                
+                // need to implement to all of the cases in each sections
+                int choice1_item;
+                do
                 {
-                    case 1:cost_starter+=250;   break;
-                    case 2:cost_starter+=30;   break;
-                    case 3:cost_starter+=180;   break;
-                    case 4:cost_starter+=150;   break;
-                    case 5:cost_starter+=220;   break;
-                    case 6:cost_starter+=120;   break;
-                    case 7:cost_starter+=180;   break;
-                    case 8:cost_starter+=80;    break;
-                    case 9:cost_starter+=150;   break;
-                    case 10:cost_starter+=180;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice1_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice1_item) 
+                    {
+                        case 1:cost_starter+=choice1_plates*250;   break;
+                        case 2:cost_starter+=choice1_plates*30;   break;
+                        case 3:cost_starter+=choice1_plates*180;   break;
+                        case 4:cost_starter+=choice1_plates*150;   break;
+                        case 5:cost_starter+=choice1_plates*220;   break;
+                        case 6:cost_starter+=choice1_plates*120;   break;
+                        case 7:cost_starter+=choice1_plates*180;   break;
+                        case 8:cost_starter+=choice1_plates*80;    break;
+                        case 9:cost_starter+=choice1_plates*150;   break;
+                        case 10:cost_starter+=choice1_plates*180;   break;
+                    }
+                } while(choice1_item!=0);
+
             break;
             case 2: // non-veg starters 
                 System.out.println("List of Non-Veg starters: ");
@@ -84,23 +100,35 @@ public class resturant
                 System.out.println("9.Grilled Chicken              250");
                 System.out.println("10.Meat Balls                  280");
                 System.out.println("Press the number before the dish to order.....");
-                int choice2=sc.nextInt();
-                switch(choice2)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice2_item;
+                do
                 {
-                    case 1:cost_starter+=250;   break;
-                    case 2:cost_starter+=180;   break;
-                    case 3:cost_starter+=180;   break;
-                    case 4:cost_starter+=150;   break;
-                    case 5:cost_starter+=220;   break;
-                    case 6:cost_starter+=280;   break;
-                    case 7:cost_starter+=400;   break;
-                    case 8:cost_starter+=400;   break;
-                    case 9:cost_starter+=250;   break;
-                    case 10:cost_starter+=280;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice2_item)
+                    {
+                        case 1:cost_starter+=choice2_plates*250;   break;
+                        case 2:cost_starter+=choice2_plates*180;   break;
+                        case 3:cost_starter+=choice2_plates*180;   break;
+                        case 4:cost_starter+=choice2_plates*150;   break;
+                        case 5:cost_starter+=choice2_plates*220;   break;
+                        case 6:cost_starter+=choice2_plates*280;   break;
+                        case 7:cost_starter+=choice2_plates*400;   break;
+                        case 8:cost_starter+=choice2_plates*400;   break;
+                        case 9:cost_starter+=choice2_plates*250;   break;
+                        case 10:cost_starter+=choice2_plates*280;   break;
+                    }
+                } while(choice2_item!=0);
             break;
-            default:System.out.println("Invalid choice");
+            default:System.out.println("Invalid choice"); 
         }
         total_cost+=cost_starter; //adding the cost of starters to the total cost
     }
@@ -126,21 +154,33 @@ public class resturant
                 System.out.println("9.Gobhi Allo                  150");
                 System.out.println("10.Tofu Tikka Masala          200");
                 System.out.println("Press the number before the dish to order.....");
-                int choice1=sc.nextInt();
-                switch(choice1)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice1_item;
+                do
                 {
-                    case 1:cost_main+=300;   break;
-                    case 2:cost_main+=250;   break;
-                    case 3:
-                    case 4:cost_main+=350;   break;
-                    case 5:
-                    case 7:
-                    case 9:cost_main+=150;   break;
-                    case 6:cost_main+=180;   break;
-                    case 8:
-                    case 10:cost_main+=200;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice1_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice1_item)
+                    {
+                        case 1:cost_main+=choice1_plates*300;   break;
+                        case 2:cost_main+=choice1_plates*250;   break;
+                        case 3:
+                        case 4:cost_main+=choice1_plates*350;   break;
+                        case 5:
+                        case 7:
+                        case 9:cost_main+=choice1_plates*150;   break;
+                        case 6:cost_main+=choice1_plates*180;   break;
+                        case 8:
+                        case 10:cost_main+=choice1_plates*200;   break
+                    }
+                } while(choice1_item!=0);
             break;
             case 2: // non-veg main course
                 System.out.println("List of Nonveg main course: ");
@@ -156,21 +196,33 @@ public class resturant
                 System.out.println("9.Chicken Bhuna Masala        300");
                 System.out.println("10.Crab Masala                500");
                 System.out.println("Press the number before the dish to order.....");
-                int choice2=sc.nextInt();
-                switch(choice2)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice2_item;
+                do
                 {
-                    case 1:cost_main+=350;   break;
-                    case 2:cost_main+=280;   break;
-                    case 3:
-                    case 8:
-                    case 9:cost_main+=300;   break;
-                    case 4:cost_main+=350;   break;
-                    case 5:cost_main+=250;   break;
-                    case 6:cost_main+=380;   break;
-                    case 7:cost_main+=400;   break;
-                    case 10:cost_main+=500;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice2_items)
+                    {
+                        case 1:cost_main+=choice_plates*350;   break;
+                        case 2:cost_main+=choice_plates*280;   break;
+                        case 3:
+                        case 8:
+                        case 9:cost_main+=choice_plates*300;   break;
+                        case 4:cost_main+=choice_plates*350;   break;
+                        case 5:cost_main+=choice_plates*250;   break;
+                        case 6:cost_main+=choice_plates*380;   break;
+                        case 7:cost_main+=choice_plates*400;   break;
+                        case 10:cost_main+=choice_plates*500;   break;
+                    }
+                } while(choice2_item!=0);
             break;
             case 3: // for breads
                 System.out.println("List of Breads: ");
@@ -186,21 +238,33 @@ public class resturant
                 System.out.println("9. Spinach and Cheese Naan   100");
                 System.out.println("10.Amritsari Kulcha           60");
                 System.out.println("Press the number before Bread to order.....");
-                int choice3=sc.nextInt();
-                switch(choice3)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice3_item;
+                do
                 {
-                    case 1:cost_main+=7;    break;
-                    case 2:cost_main+=20;   break;
-                    case 3:
-                    case 4:
-                    case 7:cost_main+=30;   break;
-                    case 5:cost_main+=45;   break;
-                    case 6:cost_main+=35;   break;
-                    case 8:cost_main+=50;   break;
-                    case 9:cost_main+=100;  break;
-                    case 10:cost_main+=60;  break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice3_item)
+                    {
+                        case 1:cost_main+=7;    break;
+                        case 2:cost_main+=20;   break;
+                        case 3:
+                        case 4:
+                        case 7:cost_main+=choice3_plates*30;   break;
+                        case 5:cost_main+=choice3_plates*45;   break;
+                        case 6:cost_main+=choice3_plates*35;   break;
+                        case 8:cost_main+=choice3_plates*50;   break;
+                        case 9:cost_main+=choice3_plates*100;  break;
+                        case 10:cost_main+=choice3_plates*60;  break;
+                    }
+                } while(choice3_item!=0);
             break;
             default:System.out.println("Invalid choice");
         }
@@ -225,18 +289,30 @@ public class resturant
                 System.out.println("6.Chocolate Ice Cream             30");
                 System.out.println("7.Kulfi                           25");
                 System.out.println("Press the number before Ice Cream to order.....");
-                int choice1=sc.nextInt();
-                switch(choice1)
+                System.out.println("Followed by enter the number of pieces for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice1_item;
+                do
                 {
-                    case 1:
-                    case 3:
-                    case 7:cost_dessert+=25;   break;
-                    case 2:cost_dessert+=80;   break;
-                    case 4:cost_dessert+=45;   break;
-                    case 5:cost_dessert+=50;   break;
-                    case 6:cost_dessert+=30;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice1_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice1_item)
+                    {
+                        case 1:
+                        case 3:
+                        case 7:cost_dessert+=choice1_plates*25;   break;
+                        case 2:cost_dessert+=choice1_plates*80;   break;
+                        case 4:cost_dessert+=choice1_plates*45;   break;
+                        case 5:cost_dessert+=choice1_plates*50;   break;
+                        case 6:cost_dessert+=choice1_plates*30;   break;
+                    }
+                } while(choice1_item!=0);
             break;
             case 2: //soft desserts
                 System.out.println("List of Soft Desserts: ");
@@ -250,23 +326,35 @@ public class resturant
                 System.out.println("7.Rabri                              30");
                 System.out.println("8.Falooda with Kulfi                 90");
                 System.out.println("Press the number before the Dessert to order....");
-                int choice2=sc.nextInt();
-                switch(choice2)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice2_item;
+                do
                 {
-                    case 1:
-                    case 3:
-                    case 7:cost_dessert+=30;   break;
-                    case 2:cost_dessert+=40;   break;
-                    case 4:cost_dessert+=50;   break;
-                    case 5:cost_dessert+=70;   break;
-                    case 6:cost_dessert+=80;   break;
-                    case 8:cost_dessert+=90;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice2_item)
+                    {
+                        case 1:
+                        case 3:
+                        case 7:cost_dessert+=choice2_plates*30;   break;
+                        case 2:cost_dessert+=choice2_plates*40;   break;
+                        case 4:cost_dessert+=choice2_plates*50;   break;
+                        case 5:cost_dessert+=choice2_plates*70;   break;
+                        case 6:cost_dessert+=choice2_plates*80;   break;
+                        case 8:cost_dessert+=choice2_plates*90;   break;
+                    }
+                } while(choice2_item!=0)
             break;
             case 3: //cakes
                 System.out.println("List of Cakes: ");
-                System.out.println("Cake                          Amount(in Rs.)");
+                System.out.println("Cake(1 slice)                   Amount(in Rs.)");
                 System.out.println("1.Red velvet Cake                 250");
                 System.out.println("2.Vanilla Cake                    150");
                 System.out.println("3.Chocolate Cake                  200");
@@ -275,18 +363,30 @@ public class resturant
                 System.out.println("6.Rocky Road Vanilla Cake         450");
                 System.out.println("7.Rocky Road Butterscotch Cake    250");
                 System.out.println("Press the number before the cake to order.....");
-                int choice3=sc.nextInt();
-                switch(choice3)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice3_item;
+                do
                 {
-                    case 1:
-                    case 7:cost_dessert+=250;   break;
-                    case 2:cost_dessert+=150;   break;
-                    case 3:cost_dessert+=200;   break;
-                    case 4:cost_dessert+=230;   break;
-                    case 5:cost_dessert+=175;   break;
-                    case 6:cost_dessert+=450;   break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice3_item)
+                    {
+                        case 1:
+                        case 7:cost_dessert+=250;   break;
+                        case 2:cost_dessert+=150;   break;
+                        case 3:cost_dessert+=200;   break;
+                        case 4:cost_dessert+=230;   break;
+                        case 5:cost_dessert+=175;   break;
+                        case 6:cost_dessert+=450;   break;
+                    }
+                } while(choice3_item!=0);
             break;
             case 4: //mousses
                 System.out.println("List of Mousses:");
@@ -298,17 +398,29 @@ public class resturant
                 System.out.println("5.Raspberry Mousses               150");
                 System.out.println("6.Pineapple Mousse                180");
                 System.out.println("Press the number before the mousse to order.....");
-                int choice4=sc.nextInt();
-                switch(choice4)
+                System.out.println("Followed by enter the number of plates for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice4_item;
+                do
                 {
-                    case 1:
-                    case 2:
-                    case 3:cost_bev+=30;    break;
-                    case 4:
-                    case 6:cost_bev+=180;  break;
-                    case 5:cost_bev+=150;  break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice4_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice4_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice4_item)
+                    {
+                        case 1:
+                        case 2:
+                        case 3:cost_bev+=choice4_plates*30;    break;
+                        case 4:
+                        case 6:cost_bev+=choice4_plates*180;  break;
+                        case 5:cost_bev+=choice4_plates*150;  break;
+                    }
+                } while(choice4_item!=0);
             break;
             default:System.out.println("Invalid choice");
         }
@@ -333,18 +445,30 @@ public class resturant
                 System.out.println("6.Limca                        60");
                 System.out.println("7.Thumbs Up                    40");
                 System.out.println("Press the number before the drink to order.....");
-                int choice1=sc.nextInt();
-                switch(choice1)
+                System.out.println("Followed by enter the number of glasses for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice1_item;
+                do
                 {
-                    case 1:
-                    case 4:
-                    case 5:
-                    case 6:cost_bev+=60;   break;
-                    case 2:
-                    case 7:cost_bev+=40;   break;
-                    case 3:cost_bev+=50; break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice1_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice1_item)
+                    {
+                        case 1:
+                        case 4:
+                        case 5:
+                        case 6:cost_bev+=choice1_plates*60;   break;
+                        case 2:
+                        case 7:cost_bev+=choice1_plates*40;   break;
+                        case 3:cost_bev+=choice1_plates*50;    break;
+                    }
+                } while(choice1_item!=0);
             break;
             case 2: //juices
                 System.out.println("List of Juices: ");
@@ -357,18 +481,30 @@ public class resturant
                 System.out.println("6.Watermelon Juice           50");
                 System.out.println("7.Oragne Juice               40");
                 System.out.println("Press the number before the juice to order.....");
-                int choice2=sc.nextInt();
-                switch(choice2)
+                System.out.println("Followed by enter the number of glasses for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice2_item;
+                do
                 {
-                    case 1:cost_bev+=80;    break;
-                    case 2:cost_bev+=60;    break;
-                    case 3:cost_bev+=70;    break;
-                    case 4:
-                    case 7:cost_bev+=40;    break;
-                    case 5:cost_bev+=90;    break;
-                    case 6:cost_bev+=50;    break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice2_item)
+                    {
+                        case 1:cost_bev+=choice2_plates*80;    break;
+                        case 2:cost_bev+=choice2_plates*60;    break;
+                        case 3:cost_bev+=choice2_plates*70;    break;
+                        case 4:
+                        case 7:cost_bev+=choice2_plates*40;    break;
+                        case 5:cost_bev+=choice2_plates*90;    break;
+                        case 6:cost_bev+=choice2_plates*50;    break;
+                    }
+                } while(choice2_item!=0);
             break;
             case 3: //tea & coffee
                 System.out.println("List of Tea & Coffee: ");
@@ -380,17 +516,29 @@ public class resturant
                 System.out.println("5.Hot Chocolate                 100");
                 System.out.println("6.Hot Chocolate                 100");
                 System.out.println("Press the number before the tea or coffee to order.....");
-                int choice4=sc.nextInt();
-                switch(choice4)
+                System.out.println("Followed by enter the number of glasses for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice3_item;
+                do
                 {
-                    case 1:cost_bev+=80;    break;
-                    case 2:cost_bev+=50;    break;
-                    case 3:
-                    case 5:
-                    case 6:cost_bev+=100;    break;
-                    case 4:cost_bev+=120;    break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice3_item)
+                    {
+                        case 1:cost_bev+=80;    break;
+                        case 2:cost_bev+=50;    break;
+                        case 3:
+                        case 5:
+                        case 6:cost_bev+=100;    break;
+                        case 4:cost_bev+=120;    break;
+                    }
+                } while(choice3_item!=0);
             break;
             case 4: //mocktails & cocktails
                 System.out.println("List of Mocktails And Cocktails:");
@@ -401,16 +549,28 @@ public class resturant
                 System.out.println("4.Virgin Mary                   170");
                 System.out.println("5.Fruit Punch                   180");
                 System.out.println("Press the number before the mocktail or cocktail to order.....");
-                int choice5=sc.nextInt();
-                switch(choice5)
+                System.out.println("Followed by enter the number of glasses for the selected item");
+                System.out.prinltn("Press 0 when done with ordering from this section");
+                int choice4_item;
+                do
                 {
-                    case 1:cost_bev+=150;    break;
-                    case 2:cost_bev+=200;    break;
-                    case 3:
-                    case 5:cost_bev+=180;    break;
-                    case 4:cost_bev+=170;    break;
-                    default:System.out.println("Invalid choice");
-                }
+                    System.out.println();
+                    System.out.print("Item number: ");
+                    choice4_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice4_item==0)
+                        break;
+                    System.out.print("Plates: ");
+                    int choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    System.out.println();
+                    switch(choice4_item)
+                    {
+                        case 1:cost_bev+=choice4_plates*150;    break;
+                        case 2:cost_bev+=choice4_plates*200;    break;
+                        case 3:
+                        case 5:cost_bev+=choice4_plates*180;    break;
+                        case 4:cost_bev+=choice4_plates*170;    break;
+                    }
+                } while(choice4_item!=0);
             break;
             default:System.out.println("Invalid choice");
         }
@@ -441,20 +601,28 @@ public class resturant
     public static void main(String[] args)
     {
         resturant obj=new resturant();  //class object
-        obj.input();
+        obj.details();
+        obj.main_menu();
         obj.billing(); 
     }
 }
 
-/* 
+/*  solved
  	Need to add the features of choosing multiple items(dishes) and number of plates to be ordered: 
  		To solve this issue, i may use an arrayList to store the dish number of the meals along with the number of plates of each dish to be ordered 
  		in two separate ArrayLists taking the input in both of them at once.
+
+        solved using a do-while loop for taking multiple entry and simultaneously calculating the sum of the prices upon multoply the number of plates with the 
+        prices.
  */
 // validation of the phone number
 /* 
  	if any wrong dish number or choice is made then, how to deal with it. How to ask the user to re-enter the choice or other detail again even if the wrong entry
  	is done multiple times.
 */
-// how to go back to the previous choice of the dishes, i.e. how to go back in the menu section.
+/* 
+    how to go back to the previous choice of the dishes, i.e. how to go back in the menu section.
+        TO solve this issue, i may pust a case with a definite number and by that case i may call the main menu function so that i may use it to order a 
+        different class of dish.(AS DONE IN THE STARTERS)
+*/
 
