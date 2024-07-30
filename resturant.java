@@ -79,7 +79,6 @@ public class resturant
                 System.out.println("Press the number before the item to order.....");
                 System.out.println("Followed by enter the number of plates for the selected item");
                 System.out.println("Press 0 when done with ordering from this section");
-                // need to implement to all of the cases in each sections
                 int choice1_item; // kept here so that it can be used in do while
                 do
                 {
@@ -146,7 +145,7 @@ public class resturant
                     if(choice2_item!=0)
                     {
                     	System.out.print("Plates: ");
-                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice2_item
                     }
                     System.out.println();
                     switch(choice2_item)
@@ -264,7 +263,7 @@ public class resturant
                     if(choice2_item!=0)
                     {
                     	System.out.print("Plates: ");
-                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice2_item
                     }
                     System.out.println();
                     switch(choice2_item)
@@ -315,7 +314,7 @@ public class resturant
                     if(choice3_item!=0)
                     {
                     	System.out.print("Pieces: ");
-                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice3_item
                     }
                     System.out.println();
                     switch(choice3_item)
@@ -340,7 +339,7 @@ public class resturant
             default:System.out.println("Invalid choice");
         }
         total_cost+=cost_main; //adding the cost of main course to the total cost
-        
+  
         return;
     }
     
@@ -426,7 +425,7 @@ public class resturant
                     if(choice2_item!=0)
                     {
                     	System.out.print("Plates: ");
-                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice2_item
                     }
                     System.out.println();
                     switch(choice2_item)
@@ -472,7 +471,7 @@ public class resturant
                     if(choice3_item!=0)
                     {
                     	System.out.print("Slices: ");
-                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice3_item
                     }
                     System.out.println();
                     switch(choice3_item)
@@ -516,7 +515,7 @@ public class resturant
                     if(choice4_item!=0)
                     {
                     	System.out.print("Plates: ");
-                    	choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice4_item
                     }
                     System.out.println();
                     switch(choice4_item)
@@ -535,7 +534,7 @@ public class resturant
             case 0:main_menu();	
             break;
             default:System.out.println("Invalid choice");
-            }
+        }
         total_cost+=cost_dessert;   //adding the cost of desserts to the total cost
         
         return;
@@ -624,7 +623,7 @@ public class resturant
                     if(choice2_item!=0)
                     {
                     	System.out.print("Glasses: ");
-                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice2_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice2_item
                     }
                     System.out.println();
                     switch(choice2_item)
@@ -668,7 +667,7 @@ public class resturant
                     if(choice3_item!=0)
                     {
                     	System.out.print("Glasses: ");
-                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice3_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice3_item
                     }
                     System.out.println();
                     switch(choice3_item)
@@ -710,7 +709,7 @@ public class resturant
                     if(choice4_item!=0)
                     {
                     	System.out.print("Glasses: ");
-                    	choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice1_item
+                    	choice4_plates=sc.nextInt();    //taking the input of the number of plate of the item selected in choice4_item
                     }
                     System.out.println();
                     switch(choice4_item)
@@ -780,22 +779,4 @@ public class resturant
     }
 }
 
-/*  solved
- 	Need to add the features of choosing multiple items(dishes) and number of plates to be ordered: 
- 	  To solve this issue, i may use an arrayList to store the dish number of the meals along with the number of plates of each dish to be ordered 
- 	  in two separate ArrayLists taking the input in both of them at once.
-
-        solved using a do-while loop for taking multiple entry and simultaneously calculating the sum of the prices upon multoply the number of plates with the 
-        prices.
- */
-// 	Solved	:validation of the phone number
-/* 
- 	if any wrong dish number or choice is made then, how to deal with it. How to ask the user to re-enter the choice or other detail again even if the wrong entry
- 	is done multiple times.
-*/
-/* 
-    how to go back to the previous choice of the dishes, i.e. how to go back in the menu section.
-        TO solve this issue, i may pust a case with a definite number and by that case i may call the main menu function so that i may use it to order a 
-        different class of dish.(AS DONE IN THE STARTERS)
-*/
-
+// ----------------------------------------------------     THE END     ------------------------------------------
