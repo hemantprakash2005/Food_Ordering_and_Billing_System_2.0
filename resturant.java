@@ -6,42 +6,62 @@ public class resturant
     int cost_starter=0; int cost_main=0;
     int cost_bev=0; int cost_dessert=0;
 
-    public void details() //input of the details of the customer
+    public String details() //input of the details of the customer
     {
     	System.out.println("***********************************************************");
         System.out.println("*              The Grand Central Restaurant               *");
         System.out.println("***********************************************************");
         System.out.println("Enter your name: ");
         String name=sc.nextLine();
-        System.out.println("Enter your phone number: ");
+        System.out.println("Enter your phone number(Indian only): ");
         String phone=sc.next();
+        return phone;
     }
+    
+    boolean check_phono(String phono)	//to check for the validity of the phone numbers 
+    {
+    	if(phono.length()!=10)	//must have 10 digits
+    		return false;
+    	for(int i=0;i<phono.length();i++)	//all the characters must be numerals
+    	{
+    		char digit=phono.charAt(i);
+    		if(!Character.isDigit(digit))
+    			return false;
+    	}
+    	return true;
+    }
+    
     public void main_menu() //choices regarding the type of food to be ordered
     {
-        System.out.println("Press 1: Starters\nPress 2:Main Course\nPress 3: Desserts\nPress 4:Bevrages");
-        int choice=sc.nextInt();
-        switch(choice)
-        {
-            case 1: starters();
-            break;
-            case 2:mainCourse();
-            break;
-            case 3: dessert();
-            break;
-            case 4: beverages();
-            break;
-            default: System.out.println("Invalid choice");
-        }
+    	for(int i=1;;i++) 
+    	{
+    		System.out.println();
+    		System.out.println("Press 1:Starters\nPress 2:Main Course\nPress 3:Desserts\nPress 4:Bevrages");
+    		if(i!=1)
+    			System.out.println("Press 0 to get the bill");
+    		int choice=sc.nextInt();
+    		switch(choice)
+    		{
+            	case 1:starters();		break;
+            	case 2:mainCourse();	break;
+            	case 3:dessert();		break;
+            	case 4:beverages();		break;
+            	case 0:billing();		break;
+            	default: System.out.println("Invalid choice");
+    		}
+    	}
     }
 
-    public void starters() //choices regarding starters (working on multiple selection of items and number of plates)
+    public void starters() //choices regarding starters 
     {
         System.out.println("*************Welcome to the Starter section****************");
         System.out.println("Press 1: Vegetarian Starter\nPress 2: Non-veg Starter");
+        System.out.println("Press 0: Main Menu");
         int choice=sc.nextInt();
-        switch(choice)
-        {
-            case 1: //veg starters 
+        do{
+            switch(choice)
+            {
+                case 1: //veg starters 
                 System.out.println("List of Vegetarian starters: ");
                 System.out.println("Dish                    Amount(in Rs.)");
                 System.out.println("1.Paneer Tikka                250");
@@ -65,6 +85,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item<0 || choice1_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice1_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -82,12 +107,11 @@ public class resturant
                         case 8:cost_starter+=choice1_plates*80;    break;
                         case 9:cost_starter+=choice1_plates*150;   break;
                         case 10:cost_starter+=choice1_plates*180;   break;
-                        default: System.out.println("Invalid choice");
                     }
                 } while(choice1_item!=0);
 
-            break;
-            case 2: // non-veg starters 
+                break;
+                case 2: // non-veg starters 
                 System.out.println("List of Non-Veg starters: ");
                 System.out.println("Dish                    Amount(in Rs.)");
                 System.out.println("1.Chicken Tikka                250");
@@ -109,6 +133,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item<0 || choice2_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice2_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -126,23 +155,27 @@ public class resturant
                         case 8:cost_starter+=choice2_plates*400;   break;
                         case 9:cost_starter+=choice2_plates*250;   break;
                         case 10:cost_starter+=choice2_plates*280;   break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice2_item!=0);
-            break;
-            default:System.out.println("Invalid choice"); 
-        }
+                break;
+                case 0:main_menu();
+                break;
+                default:System.out.println("Invalid choice"); 
+            }
+        } while(choice!=0);
         total_cost+=cost_starter; //adding the cost of starters to the total cost
     }
 
-    public void mainCourse()    //choices regarding main course dishes
+    public void mainCourse()	//choices regarding main course dishes 
     {
-    	System.out.println("***********Welcome to the Main COurse section**************");
+    	System.out.println("***********Welcome to the Main Course section**************");
         System.out.println("Press 1: Vegetarian Main Course\nPress 2: Non-veg Main Course\nPress 3:For Breads");
+        System.out.println("Press 0: Main Menu");
         int choice=sc.nextInt();
-        switch(choice)
-        {
-            case 1: //veg main course
+        do{
+            switch(choice)
+            {
+                case 1: //veg main course
                 System.out.println("List of Vegetarian main course: ");
                 System.out.println("Dish                    Amount(in Rs.)");
                 System.out.println("1.Vegetable Manchurian        300");
@@ -164,6 +197,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item<0 || choice1_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice1_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -181,11 +219,10 @@ public class resturant
                         case 6:cost_main+=choice1_plates*180;   break;
                         case 8:
                         case 10:cost_main+=choice1_plates*200;   break;
-                        default: System.out.println("Invalid choice");
                     }
                 } while(choice1_item!=0);
-            break;
-            case 2: // non-veg main course
+                break;
+                case 2: // non-veg main course
                 System.out.println("List of Nonveg main course: ");
                 System.out.println("Dish                    Amount(in Rs.)");
                 System.out.println("1.Chicken Tikka Masala        350");
@@ -207,6 +244,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item<0 || choice2_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice2_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -224,11 +266,10 @@ public class resturant
                         case 6:cost_main+=choice2_plates*380;   break;
                         case 7:cost_main+=choice2_plates*400;   break;
                         case 10:cost_main+=choice2_plates*500;   break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice2_item!=0);
-            break;
-            case 3: // for breads
+                break;
+                case 3: // for breads
                 System.out.println("List of Breads: ");
                 System.out.println("Bread(1 pc)              Amount(in Rs.)");
                 System.out.println("1.Tawa Roti                    7");
@@ -250,6 +291,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item<0 || choice3_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice3_item==0)
                         break;
                     System.out.print("Piece: ");
@@ -267,23 +313,29 @@ public class resturant
                         case 8:cost_main+=choice3_plates*50;   break;
                         case 9:cost_main+=choice3_plates*100;  break;
                         case 10:cost_main+=choice3_plates*60;  break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice3_item!=0);
-            break;
-            default:System.out.println("Invalid choice");
-        }
+                break;
+                case 0:main_menu();
+                break;
+                default:System.out.println("Invalid choice");
+            }
+        } while(choice!=0);
         total_cost+=cost_main; //adding the cost of main course to the total cost
     }
     
-    public void dessert() //choices regarding the dessert
+    public void dessert() //choices regarding the dessert 
     {
     	System.out.println("**************Welcome to the Desserts section**************");
         System.out.println("Press 1: Ice Creams\nPress 2: Soft Desserts\nPress 3: Cakes\nPress 4: Mousses");
+        System.out.println("Press 0: Main Menu");
         int choice=sc.nextInt();
-        switch(choice)
+        
+        do
         {
-            case 1: //ice creams
+            switch(choice)
+            {
+                case 1: //ice creams
                 System.out.println("List of Ice Creams: ");
                 System.out.println("Ice Cream                     Amount(in Rs.)");
                 System.out.println("1.Vanilla Ice Cream               25");
@@ -302,6 +354,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item<0 || choice1_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice1_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -316,11 +373,10 @@ public class resturant
                         case 4:cost_dessert+=choice1_plates*45;   break;
                         case 5:cost_dessert+=choice1_plates*50;   break;
                         case 6:cost_dessert+=choice1_plates*30;   break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice1_item!=0);
-            break;
-            case 2: //soft desserts
+                break;
+                case 2: //soft desserts
                 System.out.println("List of Soft Desserts: ");
                 System.out.println("Soft Dessert                     Amount(in Rs.)");
                 System.out.println("1.Gulab Jamun(2pc)                   30");
@@ -340,6 +396,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item<0 || choice2_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice2_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -355,11 +416,10 @@ public class resturant
                         case 5:cost_dessert+=choice2_plates*70;   break;
                         case 6:cost_dessert+=choice2_plates*80;   break;
                         case 8:cost_dessert+=choice2_plates*90;   break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice2_item!=0);
-            break;
-            case 3: //cakes
+                break;
+                case 3: //cakes
                 System.out.println("List of Cakes: ");
                 System.out.println("Cake(1 slice)                   Amount(in Rs.)");
                 System.out.println("1.Red velvet Cake                 250");
@@ -378,6 +438,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item<0 || choice3_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice3_item==0)
                         break;
                     System.out.print("Slices: ");
@@ -392,11 +457,10 @@ public class resturant
                         case 4:cost_dessert+=230;   break;
                         case 5:cost_dessert+=175;   break;
                         case 6:cost_dessert+=450;   break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice3_item!=0);
-            break;
-            case 4: //mousses
+                break;
+                case 4: //mousses
                 System.out.println("List of Mousses:");
                 System.out.println("Mousse                          Amount(in Rs.)");
                 System.out.println("1.Rocky Road Chocolate Mousse      30");
@@ -414,6 +478,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice4_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice4_item<0 || choice4_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice4_item==0)
                         break;
                     System.out.print("Plates: ");
@@ -429,20 +498,25 @@ public class resturant
                         case 5:cost_bev+=choice4_plates*150;  break;
                     }
                 } while(choice4_item!=0);
-            break;
-            default:System.out.println("Invalid choice");
-        }
+                break;
+                case 0:main_menu();
+                break;
+                default:System.out.println("Invalid choice");
+            }
+        } while(choice!=0);
         total_cost+=cost_dessert;   //adding the cost of desserts to the total cost
     }
 
-    public void beverages() //choices regarding the beverages
+    public void beverages() //choices regarding the beverages 
     {
     	System.out.println("**************Welcome to the Beverages section**************");
         System.out.println("Press 1: Soft Drinks\nPress 2: Juices\nPress 3:Tea & Coffee\nPress 4:Mocktails & Cocktails");
+        System.out.println("Press 0: Main Menu");
         int choice=sc.nextInt();
-        switch(choice)
-        {
-            case 1: //soft drinks
+        do{
+            switch(choice)
+            {
+                case 1: //soft drinks
                 System.out.println("List of Soft Drinks: ");
                 System.out.println("Drink(250 mL)            Amount(in Rs.)");
                 System.out.println("1.Coca Cola                    60");
@@ -461,6 +535,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice1_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice1_item<0 || choice1_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice1_item==0)
                         break;
                     System.out.print("Glasses: ");
@@ -475,11 +554,10 @@ public class resturant
                         case 2:
                         case 7:cost_bev+=choice1_plates*40;   break;
                         case 3:cost_bev+=choice1_plates*50;    break;
-                        default:System.out.println("INvalid choice");
                     }
                 } while(choice1_item!=0);
-            break;
-            case 2: //juices
+                break;
+                case 2: //juices
                 System.out.println("List of Juices: ");
                 System.out.println("Juice(250 mL)             Amount(in Rs.)");
                 System.out.println("1.Apple Juice                80");
@@ -498,6 +576,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice2_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice2_item<0 || choice2_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice2_item==0)
                         break;
                     System.out.print("Glasses: ");
@@ -512,11 +595,10 @@ public class resturant
                         case 7:cost_bev+=choice2_plates*40;    break;
                         case 5:cost_bev+=choice2_plates*90;    break;
                         case 6:cost_bev+=choice2_plates*50;    break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice2_item!=0);
-            break;
-            case 3: //tea & coffee
+                break;
+                case 3: //tea & coffee
                 System.out.println("List of Tea & Coffee: ");
                 System.out.println("Tea(1 cup)                 Amount(in Rs.)");
                 System.out.println("1.Black Tea                      80");
@@ -534,6 +616,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice3_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice3_item<0 || choice3_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice3_item==0)
                         break;
                     System.out.print("Glasses: ");
@@ -547,11 +634,10 @@ public class resturant
                         case 5:
                         case 6:cost_bev+=100;    break;
                         case 4:cost_bev+=120;    break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice3_item!=0);
-            break;
-            case 4: //mocktails & cocktails
+                break;
+                case 4: //mocktails & cocktails
                 System.out.println("List of Mocktails And Cocktails:");
                 System.out.println("Drink(1 cup)                Amount(in Rs.)");
                 System.out.println("1.Mojito                        150");
@@ -568,6 +654,11 @@ public class resturant
                     System.out.println();
                     System.out.print("Item number: ");
                     choice4_item=sc.nextInt();  //taking the input of the dish number
+                    if(choice4_item<0 || choice4_item>10)
+                    {
+                    	System.out.println("Invalid input");
+                    	continue;
+                    }
                     if(choice4_item==0)
                         break;
                     System.out.print("Glasses: ");
@@ -580,12 +671,12 @@ public class resturant
                         case 3:
                         case 5:cost_bev+=choice4_plates*180;    break;
                         case 4:cost_bev+=choice4_plates*170;    break;
-                        default:System.out.println("Invalid choice");
                     }
                 } while(choice4_item!=0);
-            break;
-            default:System.out.println("Invalid choice");
-        }
+                break;
+                default:System.out.println("Invalid choice");
+            }
+        } while(choice!=0);
         total_cost+=cost_bev;   //adding the cost of beverages to the total cost
     }
     
@@ -610,12 +701,24 @@ public class resturant
         System.out.println("***********************************************************");
     }
     
-    public static void main(String[] args)
+    public static void main(String[] args) 
     {
+    	System.out.println();
+    	Scanner sc=new Scanner(System.in);
         resturant obj=new resturant();  //class object
-        obj.details();
-        obj.main_menu();
-        obj.billing(); 
+        String phono=obj.details();
+        if(obj.check_phono(phono))
+        	obj.main_menu();	//runs only when the phone number is valid
+        else
+        {
+        	String str[]=new String[1];
+        	System.out.println();
+        	System.out.println("Invalid Phone number entered !!! ");
+        	System.out.println("Press 0 to re-entr the details or any other number to end ordering");
+        	int in=sc.nextInt();
+        	if(in==0)
+        		main(str);
+        }
     }
 }
 
@@ -627,7 +730,7 @@ public class resturant
         solved using a do-while loop for taking multiple entry and simultaneously calculating the sum of the prices upon multoply the number of plates with the 
         prices.
  */
-// validation of the phone number
+// 	Solved	:validation of the phone number
 /* 
  	if any wrong dish number or choice is made then, how to deal with it. How to ask the user to re-enter the choice or other detail again even if the wrong entry
  	is done multiple times.
