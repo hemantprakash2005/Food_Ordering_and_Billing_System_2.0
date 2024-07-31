@@ -5,7 +5,7 @@ After selecting the dishes, the customer gets a bill including the details of cu
 This project is the upgraded and more interactive version of the project named "Restaurant" during my school days. There are some features int this 2.0 version which has been modified.
 The link of the previous version: 
 
-  # The modifications include:
+  ## The modifications include:
   1. Validation of the phone number: Whenever the phone number is input by the customer, the program control validates the the phone number for an Indian phone number. It checks for the presence of the 10 digits in
      the phone number. If the phone number contains less digits then, a message is displayed and the user is supposed to do as per the instruction given on the screen.
   2. Better navigation between sections: This version has a more efficient and user friendly navigation throughout the menu.
@@ -16,7 +16,7 @@ The link of the previous version:
 Project Initiation: 25th July, 2024
 Project Completion: 31st July, 2024
 
-# Created by:
+## Created by:
   Hemant Prakash
   
   Regn. No.: 23190503030
