@@ -13,8 +13,9 @@ The link of the previous version:
 
 ## Language: Java Programming Language
 
-Project Initiation: 25th July, 2024
-Project Completion: 31st July, 2024
+## Project Timeline
+ Project Initiation: 25th July, 2024
+ Project Completion: 31st July, 2024
 
 ## Created by:
   Hemant Prakash
