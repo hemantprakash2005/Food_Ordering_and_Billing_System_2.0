@@ -16,10 +16,10 @@ The link of the previous version:
   ### 4. Handling of the edge cases: 
   In the previous version, the control flow used to get terminated and bill used to get printed when a wrong entry was done. In this version, the such cases has been handled. The control flow does not gets terminated upon such input, instead a message is displayed and furhter actions are asked to be done.
 
-### Language: 
+## Language: 
   Java Programming Language
 
-### Project Timeline:
+## Project Timeline:
    Project Initiation: 25th July, 2024
    
    Project Completion: 31st July, 2024
