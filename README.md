@@ -11,7 +11,7 @@ The link of the previous version:
   2. Better navigation between sections: This version has a more efficient and user friendly navigation throughout the menu.
   3. Better UI: Though the bill is getting displayedon the terminal, yet the UI of the bill and the item selection has been kept accoring to the convenience of the user.
 
-Language: Java Programming Language
+## Language: Java Programming Language
 
 Project Initiation: 25th July, 2024
 Project Completion: 31st July, 2024
