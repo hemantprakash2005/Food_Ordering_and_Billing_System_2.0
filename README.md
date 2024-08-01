@@ -19,8 +19,7 @@ This project is the upgraded and more interactive version of the project named "
 
 ## Project Timeline:
    Project Initiation: 25th July, 2024
-   
-   Project Completion: 31st July, 2024
+   <br> Project Completion: 31st July, 2024
 
 ## Created by:
   Hemant Prakash
