@@ -4,7 +4,7 @@ This project is about the food ordering and billing system of a resturant. This 
 This project is the upgraded and more interactive version of the project named "Restaurant" during my school days. There are some features in this 2.0 version which has been modified.
 
   ## The modifications include:
-  ### 1. Validation of the phone number: 
+  <b>1. Validation of the phone number: </b>
   Whenever the phone number is input by the customer, the program control validates the the phone number for an Indian phone number. It checks for the presence of the 10 digits in
      the phone number. If the phone number contains less digits then, a message is displayed and the user is supposed to do as per the instruction given on the screen.
    ### 2. Better navigation throughout the menu: 
