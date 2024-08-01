@@ -3,7 +3,6 @@ This project is about the food ordering and billing system of a resturant. This 
 After selecting the dishes, the customer gets a bill including the details of customer, the total amount, the GST incured and the net amount to be paid.
 
 This project is the upgraded and more interactive version of the project named "Restaurant" during my school days. There are some features int this 2.0 version which has been modified.
-The link of the previous version: 
 
   ## The modifications include:
   ### 1. Validation of the phone number: 
