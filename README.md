@@ -23,7 +23,5 @@ This project is the upgraded and more interactive version of the project named "
 
 ## Created by:
   Hemant Prakash
-  
-  Regn. No.: 23190503030
-  
-  Central University of Jharkhand, Ranchi, Jharkhand.
+  <br>Regn. No.: 23190503030
+  <br>Central University of Jharkhand, Ranchi, Jharkhand.
