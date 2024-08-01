@@ -18,10 +18,11 @@ This project is the upgraded and more interactive version of the project named "
   Java Programming Language
 
 ## Project Timeline:
-   Project Initiation: 25th July, 2024
-   <br> Project Completion: 31st July, 2024
+   <b>Project Initiation:</b> 25th July, 2024
+   <br> <b>Project Completion:</b> 31st July, 2024
 
 ## Created by:
   Hemant Prakash
+  <br>Year: 1st (SEM-2)
   <br>Regn. No.: 23190503030
   <br>Central University of Jharkhand, Ranchi, Jharkhand.
