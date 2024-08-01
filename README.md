@@ -23,6 +23,7 @@ This project is the upgraded and more interactive version of the project named "
 
 ## Sample Images:
    Following are the images of the project when it is executed: 
+   
    <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(11).png">
    <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(12).png">
    <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(13).png">
