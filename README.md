@@ -1,7 +1,7 @@
 # Food Ordering and Billing System 2.0
 This project is about the food ordering and billing system of a resturant. This project allows the customer to first select the section to order and then select the dish from that section. In order to select a particular dish, the user(customer) needs to press the number before the dish and enter the quantity. After selecting the dishes, the customer gets a bill including the details of customer, the total amount, the GST incured and the net amount to be paid.
 
-## NOTE: The user needs to download the file named "resturant.java" and run it in a Java IDE.
+### NOTE: The user needs to download the file named "resturant.java" and run it in a Java IDE.
 This project is the upgraded and more interactive version of the project named "Restaurant" during my school days. There are some features in this 2.0 version which has been modified.
 
   ## The modifications include:
