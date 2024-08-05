@@ -2,7 +2,6 @@ import java.util.Scanner;
 public class resturant
 {
 	Scanner sc=new Scanner(System.in);
-    int total_cost=0;
     int cost_starter=0; int cost_main=0;
     int cost_bev=0; int cost_dessert=0;
     String name,phone;
@@ -49,6 +48,7 @@ public class resturant
             	case 0:billing();		break;
             	default: System.out.println("Invalid choice");
     		}
+    		
     		break;
     	}
     }
@@ -111,7 +111,6 @@ public class resturant
                         case 10:cost_starter+=choice1_plates*180;   break;
                         case 0:starters();	break;
                     }
-                    total_cost+=cost_starter;
                 } while(choice1_item!=0);
             break;
             case 2: // non-veg starters 
@@ -162,14 +161,12 @@ public class resturant
                         case 10:cost_starter+=choice2_plates*280;   break;
                         case 0:starters();	break;
                     }
-                    total_cost+=cost_starter;
                 } while(choice2_item!=0);
             break;
             case 0:main_menu();
             break;
             default:System.out.println("Invalid choice"); 
             }
-        total_cost+=cost_starter; //adding the cost of starters to the total cost
         return;
     }
 
@@ -229,7 +226,6 @@ public class resturant
                         case 10:cost_main+=choice1_plates*200;   break;
                         case 0:mainCourse();	break;
                     }
-                    total_cost+=cost_main;
                 } while(choice1_item!=0);
             break;
             case 2: // non-veg main course
@@ -280,7 +276,6 @@ public class resturant
                         case 10:cost_main+=choice2_plates*500;   break;
                         case 0:mainCourse();	break;
                     }
-                    total_cost+=cost_main;
                 } while(choice2_item!=0);
             break;
             case 3: // for breads
@@ -331,15 +326,12 @@ public class resturant
                         case 10:cost_main+=choice3_plates*60;  break;
                         case 0:mainCourse();	break;
                     }
-                    total_cost+=cost_main;
                 } while(choice3_item!=0);
             break;
             case 0:main_menu();	
             break;
             default:System.out.println("Invalid choice");
         }
-        total_cost+=cost_main; //adding the cost of main course to the total cost
-  
         return;
     }
     
@@ -393,7 +385,6 @@ public class resturant
                         case 6:cost_dessert+=choice1_plates*30;   break;
                         case 0:dessert();	break;
                     }
-                    total_cost+=cost_dessert;
                 } while(choice1_item!=0);
             break;
             case 2: //soft desserts
@@ -440,7 +431,6 @@ public class resturant
                         case 8:cost_dessert+=choice2_plates*90;   break;
                         case 0:dessert();	break;
                     }
-                    total_cost+=cost_dessert;
                 } while(choice2_item!=0);
             break;
             case 3: //cakes
@@ -485,7 +475,6 @@ public class resturant
                         case 6:cost_dessert+=450;   break;
                         case 0:dessert();	break;
                     }
-                    total_cost+=cost_dessert;
                 } while(choice3_item!=0);
             break;
             case 4: //mousses
@@ -528,15 +517,12 @@ public class resturant
                         case 5:cost_bev+=choice4_plates*150;  break;
                         case 0:dessert();	break;
                     }
-                    total_cost+=cost_dessert;
                 } while(choice4_item!=0);
             break;
             case 0:main_menu();	
             break;
             default:System.out.println("Invalid choice");
         }
-        total_cost+=cost_dessert;   //adding the cost of desserts to the total cost
-        
         return;
     }
 
@@ -592,7 +578,6 @@ public class resturant
                         case 3:cost_bev+=choice1_plates*50;    break;
                         case 0:beverages();	break;
                     }
-                    total_cost+=cost_bev;
                 } while(choice1_item!=0);
             break;
             case 2: //juices
@@ -637,7 +622,6 @@ public class resturant
                         case 6:cost_bev+=choice2_plates*50;    break;
                         case 0:beverages();	break;
                     }
-                    total_cost+=cost_bev;
                 } while(choice2_item!=0);
             break;
             case 3: //tea & coffee
@@ -680,7 +664,6 @@ public class resturant
                         case 4:cost_bev+=120;    break;
                         case 0:beverages();		break;
                     }
-                    total_cost+=cost_bev;
                 } while(choice3_item!=0);
             break;
             case 4: //mocktails & cocktails
@@ -721,21 +704,20 @@ public class resturant
                         case 4:cost_bev+=choice4_plates*170;    break;
                         case 0:beverages();	break;
                     }
-                    total_cost+=cost_bev;
                 } while(choice4_item!=0);
             break;
             case 0:main_menu();	break;
             default:System.out.println("Invalid choice");
         }
-        total_cost+=cost_bev;   //adding the cost of beverages to the total cost
-        
         return;
     }
     
     public void billing()   // to calculate the bill and print the bill 
     {
+    	int total_cost=cost_starter+cost_main+cost_bev+cost_dessert;
     	System.out.println("\n\n");
-        float gst=(float)0.18*total_cost;
+        float gst=(float)(0.18*total_cost);
+        float amount_to_be_paid=total_cost+gst;
         System.out.println("***********************************************************");
         System.out.println("*              The Grand Central Restaurant               *");
         System.out.println("***********************************************************");
@@ -746,10 +728,11 @@ public class resturant
         System.out.println("         Amount for Main Course =   Rs."+cost_main);
         System.out.println("         Amount for Beverages =     Rs." +cost_bev);
         System.out.println("         Amount for Desserts =      Rs."+cost_dessert);
+        System.out.println("*        Total =                    Rs."+total_cost);
         System.out.println("***********************************************************");
-        System.out.println("*        GST =                      Rs."+gst);
+        System.out.println("*        GST(18%) =                 Rs."+gst);
         System.out.println("***********************************************************");
-        System.out.println("         Amount to be paid =        Rs."+(double)(gst+total_cost));
+        System.out.println("         Amount to be paid =        Rs."+amount_to_be_paid);
         System.out.println("***********************************************************");
         System.out.println("*                       Thank You                         *");
         System.out.println("*             We Hope for Your presence Again             *");
