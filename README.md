@@ -34,5 +34,5 @@ This project is the upgraded and more interactive version of the project named "
 ## Created by:
   Hemant Prakash
   <br>Year: 1st (SEM-2)   [while making project]
-  <br>Regn. No.: 23190503030
+  <br>Computer Sc. & Engineering
   <br>Central University of Jharkhand, Ranchi, Jharkhand.
