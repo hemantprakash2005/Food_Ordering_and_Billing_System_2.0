@@ -1,91 +1,86 @@
-# 🍴 The Grand Central Restaurant  
+# The Grand Central Restaurant 🍽️  
 
-A **Food Ordering and Billing System** built in **Java**.  
-This project allows customers to:  
-- Select a section of the menu.  
-- Choose dishes from that section.  
-- Enter quantity for each dish.  
-- Finally, generate a **detailed bill** including:  
-  - Customer details  
-  - Total amount  
-  - GST incurred  
-  - Net amount to be paid  
+A **Java-based Command-Line Interface (CLI) Food Ordering and Billing System** that provides customers with an interactive and user-friendly terminal experience for placing orders and generating bills.  
+
+The system allows customers to:  
+- Navigate through different menu sections.  
+- Select dishes and specify quantities.  
+- Validate input details such as phone numbers.  
+- Generate a **comprehensive bill** with customer details, total amount, GST, and net payable amount.  
 
 ---
 
-## 📌 Note
-👉 The user needs to download the file named **`resturant.java`** and run it in a Java IDE.
+## 📂 Project Information  
 
----
-
-## 🚀 Project Overview
-This project is the **upgraded and more interactive version** of the project named *"Restaurant"* created during my school days.  
-The **2.0 version** comes with improved functionality, better navigation, and enhanced user experience.
-
----
-
-## ✨ Modifications in Version 2.0
-
-### 1. Phone Number Validation  
-- Validates if the phone number entered is a **valid Indian phone number** (10 digits).  
-- If invalid, an appropriate message is displayed with corrective instructions.  
-
-### 2. Improved Menu Navigation  
-- Unlike the old version (where all items were shown at once), now:  
-  - Items are displayed section-wise.  
-  - Users can navigate between sections.  
-
-### 3. Better User Interface  
-- Bill and item selection are displayed in a **clear, organized, and user-friendly way**, even though it runs in the terminal.  
-
-### 4. Edge Case Handling  
-- In the older version, a **wrong entry terminated the program** and printed the bill.  
-- Now, such cases are **handled gracefully**:  
-  - An error message is shown.  
-  - The user is prompted for further action instead of abrupt termination.  
-
----
-
-## 💻 Language  
-- **Java Programming Language**
-
----
-
-## 🗓 Project Timeline  
+- **Type:** CLI Project (Terminal-based)  
+- **Language:** Java  
 - **Project Initiation:** 25th July, 2024  
 - **Project Completion:** 31st July, 2024  
 
+> ⚠️ To run the project, download the file **`resturant.java`** and execute it in a Java IDE.  
+
 ---
 
-## 🖼 Sample Images  
-Execution screenshots of the project:  
+## 🔑 Key Features (Version 2.0 Upgrades)  
+
+### 1️⃣ Phone Number Validation  
+- Ensures the entered phone number is a valid **Indian 10-digit number**.  
+- Displays an error message for invalid inputs with corrective instructions.  
+
+### 2️⃣ Improved Menu Navigation  
+- Menu is displayed **section-wise** for clarity.  
+- Users can **switch between sections** instead of scrolling through a large menu.  
+
+### 3️⃣ Enhanced User Interface  
+- **CLI-friendly UI**: All output (bill & item selection) is presented in a clear and organized format within the terminal.  
+
+### 4️⃣ Robust Error Handling  
+- Incorrect entries no longer terminate the program.  
+- Error messages guide the user to take corrective actions instead.  
+
+---
+
+## 📊 System Workflow  
+
+1. **Customer enters details** (name, phone number).  
+2. **Phone number validation** ensures correctness.  
+3. **Menu navigation** allows selection of sections and dishes.  
+4. **Dish selection with quantity** is recorded.  
+5. **Bill generation** includes:  
+   - Customer details  
+   - Itemized list of dishes  
+   - Total amount  
+   - GST applied  
+   - Final payable amount  
+
+---
+
+## 🖼️ Sample Screenshots  
+
+Execution screenshots of the CLI project:  
 
 <p align="center">
   <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(11).png" width="70%" />
 </p>
-
 <p align="center">
   <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(12).png" width="70%" />
 </p>
-
 <p align="center">
   <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(13).png" width="70%" />
 </p>
-
 <p align="center">
   <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/Screenshot%20(14).png" width="70%" />
 </p>
-
 <p align="center">
   <img src="https://github.com/hemantprakash2005/Food_Ordering_and_Billing_System_2.0/blob/main/Sample_Images/ss%2015%20modified.jpg" width="70%" />
 </p>
 
 ---
 
-## 👨‍💻 Created By  
+## 👨‍💻 Project done by:  
+
 **Hemant Prakash**  
-- Year: 1st (SEM-2)  
-- Computer Science & Engineering  
-- Central University of Jharkhand, Ranchi, Jharkhand  
+B.Tech (Computer Science & Engineering), Semester 2  
+Central University of Jharkhand, Ranchi, Jharkhand  
 
 ---
