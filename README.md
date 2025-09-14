@@ -80,7 +80,8 @@ Execution screenshots of the CLI project:
 ## 👨‍💻 Project done by:  
 
 **Hemant Prakash**  
-B.Tech (Computer Science & Engineering), Semester 2  
+Integrarted B.Tech-M.Tech in Computer Science & Engineering
+Semester 2  
 Central University of Jharkhand, Ranchi, Jharkhand  
 
 ---
