@@ -77,11 +77,11 @@ Execution screenshots of the CLI project:
 
 ---
 
-## 👨‍💻 Project done by:  
+## 👨‍💻 Author:  
 
 **Hemant Prakash**  
-Integrarted B.Tech-M.Tech in Computer Science & Engineering
-Semester 2  
-Central University of Jharkhand, Ranchi, Jharkhand  
+- Integrarted B.Tech-M.Tech in Computer Sc. & Engineering
+- Semester 2  
+- Central University of Jharkhand, Ranchi, Jharkhand  
 
 ---
